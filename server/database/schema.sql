@@ -1,21 +1,10 @@
-create table user (
-  id int unsigned primary key auto_increment not null,
-  email varchar(255) not null unique,
-  password varchar(255) not null
+CREATE TABLE user (
+  id INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  email VARCHAR(60),
+  password VARCHAR(100),
+  avatar VARCHAR(100) DEFAULT "/assets/images/favicon.png"
 );
 
-create table item (
-  id int unsigned primary key auto_increment not null,
-  title varchar(255) not null,
-  user_id int unsigned not null,
-  foreign key(user_id) references user(id)
-);
-
-insert into user(id, email, password)
-values
-  (1, "jdoe@mail.com", "123456");
-
-insert into item(id, title, user_id)
-values
-  (1, "Stuff", 1),
-  (2, "Doodads", 1);
+INSERT INTO user (email, password)
+  VALUES
+    ("jean@hotmail.com", "password");
